@@ -3,8 +3,8 @@ import 'dotenv/config';
 
 const commands = [
   {
-    name: 'ping',
-    description: 'Replies with Pong!',
+    name: 'uwu',
+    description: 'Testis tänää..',
   },
 ];
 
