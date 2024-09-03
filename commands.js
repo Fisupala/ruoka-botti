@@ -6,6 +6,10 @@ const commands = [
     name: 'uwu',
     description: 'Testis tänää..',
   },
+  {
+    name: 'anna_ruokaa',
+    description: 'Kertoo, mitä ruokaa tänään on koulussa',
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
