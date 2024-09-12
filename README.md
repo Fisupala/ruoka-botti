@@ -1,1 +1,1 @@
-Discord-botti, joka sanoo uwu /uwu komennon tehdessä
+Discord-botti, joka kertoo ruokalistan /anna_ruokaa komennon tehdessä
