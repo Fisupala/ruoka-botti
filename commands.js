@@ -10,6 +10,10 @@ const commands = [
     name: 'anna_ruokaa',
     description: 'Kertoo, mitä ruokaa tänään on koulussa',
   },
+  {
+    name: 'testi',
+    description: 'tyhjä :(',
+  }
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
