@@ -1,7 +1,7 @@
-import { XMLParser, XMLBuilder, XMLValidator} from "fast-xml-parser";
+import { XMLParser, XMLBuilder, XMLValidator } from "fast-xml-parser";
 
 const parser = new XMLParser();
-import { Client, GatewayIntentBits, EmbedBuilder } from 'discord.js';
+import { Client, GatewayIntentBits, EmbedBuilder, CommandInteraction, ApplicationCommand } from 'discord.js';
 import 'dotenv/config';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -10,7 +10,7 @@ let channel;
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-async function hae_kaunis_ruokalista(){
+async function hae_kaunis_ruokalista() {
   const foodlist = await getFoodList();
   //console.log(foodlist);
   const foodlistParsed = parser.parse(foodlist);
@@ -20,13 +20,13 @@ async function hae_kaunis_ruokalista(){
   return foodlistParsed.rss.channel.item.description;
 }
 
-await console.log(await hae_kaunis_ruokalista());
+//await console.log(await hae_kaunis_ruokalista());
 
-function foo(){
+function foo() {
   console.log("bazz");
 }
 
-async function getFoodList(){
+async function getFoodList() {
   let food;
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=221d8290-97ee-442f-b604-11b0f6dd2346&amp;DateMode=0").then(vastaus => {
     food = vastaus.text()
@@ -34,45 +34,64 @@ async function getFoodList(){
 
   return await food;
 
+}
+
+async function embedRakentaja() {
+  let ruokalista = await hae_kaunis_ruokalista();
+
+//  console.log(ruokalista.split("<br><br>"));
+  let ruokalistat = ruokalista.split("<br><br>")
+  const exampleEmbed = {
+    color: 0xbe9130,
+    title: 'Ruokalista',
+    author: {
+    },
+    description: 'Tämän päivän ruokalista',
+    thumbnail: {
+    },
+    fields: [
+/*    {
+        name: 'Perusruoka',
+        value: ruokalista, //ruoka tähän
+        inline: false,
+      },
+*/    ],
+    image: {
+    }
+  };
+
+  for (let osa in ruokalistat) {
+    //console.log(osa);
+
+    let otsikko = ruokalistat[osa].split(":");
+    //console.log(otsikko);
+    exampleEmbed.fields.push({
+      name: otsikko[0],
+      value: otsikko[1],
+      inline: false,
+    });
   }
 
-function embedRakentaja(){
-  const exampleEmbed = new EmbedBuilder()
-  .setColor(c1991c)
-  .setTitle('Tänään ruokana')
-  .setURL('https://discord.js.org/')
-  .setDescription('')
-  .setThumbnail('https://i.imgur.com/AfFp7pu.png')
-  .addFields(
-    { name: 'Regular field title', value: 'Some value here' },
-    { name: '\u200B', value: '\u200B' },
-    { name: 'Inline field title', value: 'Some value here', inline: true },
-    { name: 'Inline field title', value: 'Some value here', inline: true },
-  )
-  .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
-  .setTimestamp()
-
-  return { embeds: [exampleEmbed] };
-}  
+  return exampleEmbed;
+}
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
-
-  if (interaction.commandName === 'uwu') {
-    await interaction.reply(embedRakentaja());
+  
+  if (interaction.commandName === 'anna_ruokaa') {
+    await interaction.reply({ embeds: [await embedRakentaja()] });
   }
+
 });
-
+/*
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === 'anna_ruokaa'){
+  if (interaction.commandName === 'anna_ruokaa') {
 
     interaction.reply(await hae_kaunis_ruokalista());
   }
-  if (interaction.commandName === 'testi'){
-    interaction.reply("Moi");
-  }
 });
-
+*/
 client.login(process.env.BOT_TOKEN);
+
