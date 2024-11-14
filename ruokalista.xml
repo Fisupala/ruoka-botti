@@ -1,42 +1,42 @@
-const re = new RegExp("\[CDATA\[(?:.|\s)+]");
-
 <?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-<channel>
-<title>RSS:Lintuvaaran koulu</title>
-<link>https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx</link>
-<atom:link href="https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintuvaarankoulu/Rss.aspx?Id=221d8290-97ee-442f-b604-11b0f6dd2346" rel="self" type="application/rss+xml" />
-<description />
-<item>
-<title>ti 3.9.2024</title>
-<description>
-<![CDATA[
-Koululounas 1:Pinaatti-pestopasta  (L, MU, K), Tomaattiketsuppi (L, M, G, MU)<br><br>
-Koululounas 2:Tex-mex tortilla (M, MU, K, VEGA), Täysjyvävehnätortilla (L, M, MU), Tacokastike (L, M, G, MU), Jalapeno (L, M, G, MU), Juustoraaste (L, G, MU)]]>
-</description>
-<guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=221d8290-97ee-442f-b604-11b0f6dd2346&amp;Date=ti 3.9.2024</guid>
-</item>
-</channel>
+    <channel>
+        <title>RSS:Lintumetsän koulu</title>
+        <link>
+            https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx</link>
+        <atom:link
+            href="https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;DateMode=1"
+            rel="self" type="application/rss+xml" />
+        <description />
+        <item>
+            <title>ma 7.10.2024</title>
+            <description><![CDATA[Koululounas 1:Kiinalainen tofu  (L, M, G, MU, K, VEGA), Ohrahelmi  (L, M, MU)<br><br>Koululounas 2:Broilerihöystö  (L, G, MU), Ohrahelmi  (L, M, MU)]]></description>
+            <guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;Date=ma
+                7.10.2024</guid>
+        </item>
+        <item>
+            <title>ti 8.10.2024</title>
+            <description><![CDATA[Koululounas 1:Pinaatti-pestopasta  (L, MU, K), Tomaattiketsuppi (L, M, G, MU)<br><br>Koululounas 2:Tex-mex tortilla (M, MU, K, VEGA), Täysjyvävehnätortilla (L, M, MU), Tacokastike (L, M, G, MU), Jalapeno (L, M, G, MU), Juustoraaste (L, G, MU)]]></description>
+            <guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;Date=ti
+                8.10.2024</guid>
+        </item>
+        <item>
+            <title>ke 9.10.2024</title>
+            <description><![CDATA[Koululounas 1:Tomaatti-linssikeitto  (L, M, MU, K, VEGA), Ruisvuoka (L, M, MU), Omena (L, M, G, MU), Juusto (L, G, MU)<br><br>Koululounas 2:Jauhelihakeitto  (L, M, G, MU), Ruisvuoka (L, M, MU), Omena (L, M, G, MU), Juusto (L, G, MU)]]></description>
+            <guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;Date=ke
+                9.10.2024</guid>
+        </item>
+        <item>
+            <title>to 10.10.2024</title>
+            <description><![CDATA[Koululounas 1:Chili sin carne  (L, M, G, MU, K, VEGA), Riisi-moniviljalisäke  (L, M, MU, K, VEGA), Taboulleh (L, M, MU, K, VEGA)<br><br>Koululounas 2:Chili con pollo  (L, M, G, MU), Riisi-moniviljalisäke  (L, M, MU, K, VEGA), Taboulleh (L, M, MU, K, VEGA)]]></description>
+            <guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;Date=to
+                10.10.2024</guid>
+        </item>
+        <item>
+            <title>pe 11.10.2024</title>
+            <description><![CDATA[Koululounas 1:Kasvispihvi  (L, M, G, K), Perunasalaatti (L, M, G, MU, K, VEGA)<br><br>Koululounas 2:Rukiinen silakkamurekepihvi  (L), Remoulade-kastike (L, M, G, K), keitetty peruna (L, M, G, MU, K, VEGA), Perunasalaatti (L, M, G, MU, K, VEGA)]]></description>
+            <guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&amp;Date=pe
+                11.10.2024</guid>
+        </item>
+    </channel>
 </rss>
-
-
-
-
-
-
-uwu-botti
-APPI
- — tänään klo 18.27
-<?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-<channel>
-<title>RSS:Lintuvaaran koulu</title>
-<link>https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx</link>
-<atom:link href="https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=221d8290-97ee-442f-b604-11b0f6dd2346" rel="self" type="application/rss+xml" />
-<description />
-<item>
-<title>ti 10.9.2024</title>
-<description>
-<![CDATA[Koululounas 1:Kasvis-jalapenonugetit  (L, M, G, MU, K, VEGA), Currymajoneesi (L, M, G, MU, K, VEGA), Lohkoperunat  (L, M, G, MU, K, VEGA)<br><br>
-Koululounas 2:Best of the best: Kananugetit  (L, M, MU), Currymajoneesi (L, M, G, MU, K, VEGA), Lohkoperunat  (L, M, G, MU, K, VEGA)]]>
-</description><guid isPermaLink="false">https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx?Id=221d8290-97ee-442f-b604-11b0f6dd2346&amp;Date=ti 10.9.2024</guid></item></channel></rss>
