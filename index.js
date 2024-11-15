@@ -12,18 +12,8 @@ client.on('ready', () => {
 });
 async function hae_kaunis_ruokalista() {
   const foodlist = await getFoodList();
-  //console.log(foodlist);
   const foodlistParsed = parser.parse(foodlist);
-  console.log(foodlistParsed.rss.channel);
-  //console.log(foodlistParsed.rss.channel.item);
-  //console.log(foodlistParsed.rss.channel.item.description);
   return foodlistParsed.rss.channel.item;
-}
-
-//await console.log(await hae_kaunis_ruokalista());
-
-function foo() {
-  console.log("bazz");
 }
 
 async function getFoodList() {
@@ -38,9 +28,6 @@ async function getFoodList() {
 
 async function embedRakentaja() {
   let ruokalista = await hae_kaunis_ruokalista();
-
-  //  console.log(ruokalista.split("<br><br>"));
-  //  let ruokalistat = ruokalista.split("<br><br>")
   const exampleEmbed = {
     color: 0xbe9130,
     title: 'Ruokalista',
@@ -50,21 +37,12 @@ async function embedRakentaja() {
     thumbnail: {
     },
     fields: [
-/*    {
-        name: 'Perusruoka',
-        value: ruokalista, //ruoka tähän
-        inline: false,
-      },
-*/    ],
+  ],
     image: {
     }
   };
 
   for (let osa in ruokalista) {
-    console.log(osa);
-
-    //let otsikko = ruokalistat[osa].split(":");
-    //console.log(otsikko);
     exampleEmbed.fields.push({
       name: ruokalista[osa].title,
       value: "",
@@ -103,14 +81,4 @@ client.on('interactionCreate', async interaction => {
   }
 
 });
-/*
-client.on('interactionCreate', async interaction => {
-  if (!interaction.isChatInputCommand()) return;
- 
-  if (interaction.commandName === 'anna_ruokaa') {
- 
-    interaction.reply(await hae_kaunis_ruokalista());
-  }
-});
-*/
 client.login(process.env.BOT_TOKEN);
