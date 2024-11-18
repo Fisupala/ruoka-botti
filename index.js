@@ -16,6 +16,16 @@ async function hae_kaunis_ruokalista2() {
   return foodlist2Parsed.rss.channel.item;
 }
 
+async function getFoodList1() {
+  let food;
+  await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=1").then(vastaus => {
+    food = vastaus.text()
+  });
+
+  return await food;
+
+}
+
 async function getFoodList2() {
   let food;
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=2").then(vastaus => {
