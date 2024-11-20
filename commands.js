@@ -4,7 +4,10 @@ import 'dotenv/config';
 const data = new SlashCommandBuilder()
   .setName('ruokaa')
   .setDescription('Kertoo ruokalistan')
-  .add
+  .addStringOption(option =>
+		option.setName('nimi')
+			.setDescription('Desc')
+			.setAutocomplete(true));
 
 const commands = [data.toJSON()];
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
