@@ -1,22 +1,13 @@
-import { REST, Routes } from 'discord.js';
+import { REST, Routes, SlashCommandBuilder } from 'discord.js';
 import 'dotenv/config';
 
-const commands = [
-  {
-    name: 'uwu',
-    description: 'Testis tänää..',
-  },
-  {
-    name: 'anna_ruokaa',
-    description: 'Kertoo, mitä ruokaa tänään on koulussa',
-  },
-  {
-    name: 'testi',
-    description: 'tyhjä :(',
-  }
-];
+const data = new SlashCommandBuilder()
+  .setName('ruokaa')
+  .setDescription('Kertoo ruokalistan')
+  .add
 
-const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
+const commands = [data.toJSON()];
+const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
 try {
   console.log('Started refreshing application (/) commands.');
