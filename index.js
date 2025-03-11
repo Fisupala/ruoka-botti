@@ -11,13 +11,14 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 async function hae_kaunis_ruokalista2() {
-  const foodlist2 = await getFoodList2();
+  const foodlist2 = await haeTamanViikonRuokalista();
   const foodlist2Parsed = parser.parse(foodlist2);
   return foodlist2Parsed.rss.channel.item;
 }
 
-async function getFoodList1() {
+async function haeTamanViikonRuokalista() {
   let food;
+//alempana linkki tämän viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=1").then(vastaus => {
     food = vastaus.text()
   });
@@ -26,8 +27,9 @@ async function getFoodList1() {
 
 }
 
-async function getFoodList2() {
+async function haeEnsiViikonRuokalista() {
   let food;
+//alempana linkki ensi viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=2").then(vastaus => {
     food = vastaus.text()
   });
@@ -43,9 +45,9 @@ async function embedRakentaja() {
     color: 0xbe9130,
     title: 'Ruokalista',
     author: {
-      name: 'Espoo Catering',
-      icon_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLZzjvSp-SILXuQltElemmpiR-DCp5zSh8bg&s',
-      url: 'https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx',
+      name: 'Espoo Catering', // linkin nimi
+      icon_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLZzjvSp-SILXuQltElemmpiR-DCp5zSh8bg&s', // Espoo logo
+      url: 'https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Restaurant.aspx', // Linkki ruokalistasivustolle
     },
     description: 'Seuraavan viikon ruokalista',
     thumbnail: {
@@ -92,7 +94,7 @@ async function embedRakentaja() {
 client.on('interactionCreate', async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === 'anna_ruokaa') {
+  if (interaction.commandName === 'ruokaa') {
     await interaction.reply({ embeds: [await embedRakentaja()] });
   }
 

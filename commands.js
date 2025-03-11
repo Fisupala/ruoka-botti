@@ -4,11 +4,11 @@ import 'dotenv/config';
 const data = new SlashCommandBuilder()
   .setName('ruokaa')
   .setDescription('Kertoo ruokalistan')
-  .addStringOption(option =>
-		option.setName('nimi')
-			.setDescription('Desc')
+/*  .addStringOption(option =>
+		option.setName('Aikaväli')
+			.setDescription('Haluatko tämän päivän, tämän viikon vai vaikka ensiviikon ruokalistan?')
 			.setAutocomplete(true));
-
+*/
 const commands = [data.toJSON()];
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
