@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update_commands": "node commands.js"
+    "update_commands": "node src/commands.js"
   },
   "author": "",
   "license": "ISC",
