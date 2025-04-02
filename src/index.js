@@ -11,14 +11,14 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 async function hae_kaunis_ruokalista2() {
-  const foodlist2 = await haeTamanViikonRuokalista();
+  const foodlist2 = await haeEnsiViikonRuokalista();
   const foodlist2Parsed = parser.parse(foodlist2);
   return foodlist2Parsed.rss.channel.item;
 }
 
 async function haeTamanViikonRuokalista() {
   let food;
-//alempana linkki tämän viikon ruokalistaan
+  //alempana linkki tämän viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=1").then(vastaus => {
     food = vastaus.text()
   });
@@ -29,7 +29,7 @@ async function haeTamanViikonRuokalista() {
 
 async function haeEnsiViikonRuokalista() {
   let food;
-//alempana linkki ensi viikon ruokalistaan
+  //alempana linkki ensi viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=2").then(vastaus => {
     food = vastaus.text()
   });
@@ -53,7 +53,7 @@ async function embedRakentaja() {
     thumbnail: {
     },
     fields: [
-  ],
+    ],
     image: {
     }
   };
