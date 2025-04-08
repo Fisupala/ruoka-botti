@@ -4,13 +4,19 @@ import 'dotenv/config';
 const data = new SlashCommandBuilder()
   .setName('ruokaa')
   .setDescription('Kertoo ruokalistan')
-/*  .addStringOption(option =>
-		option.setName('Aikaväli')
+  .addStringOption(option =>
+		option.setName('aikavali')
 			.setDescription('Haluatko tämän päivän, tämän viikon vai vaikka ensiviikon ruokalistan?')
-			.setAutocomplete(true));
-*/
+      .setRequired(true)
+			.setChoices(
+        {name: "Tämän päivän ruokalista", value: "tamanPaivanRuokalista", default: true},
+        {name: "Tämän viikon ruokalista", value: "tamanViikonRuokalista",},
+        {name: "Ensi viikon ruokalista", value: "ensiViikonRuokalista",}
+        
+      ));
+
 const commands = [data.toJSON()];
-const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+const rest = new REST().setToken(process.env.BOT_TOKEN);
 
 try {
   console.log('Started refreshing application (/) commands.');
