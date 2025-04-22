@@ -1,7 +1,7 @@
 {
-  "name": "uwu-botti",
+  "name": "ruoka-botti",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a Discord bot that provides information about foodlists in the school restaurants (in espoo).",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,6 +13,16 @@
   "dependencies": {
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
-    "fast-xml-parser": "^4.5.0"
-  }
+    "fast-xml-parser": "^4.5.3",
+    "node-fetch": "^3.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fisupala/ruoka-botti.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Fisupala/ruoka-botti/issues"
+  },
+  "homepage": "https://github.com/Fisupala/ruoka-botti#readme"
 }

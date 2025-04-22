@@ -15,12 +15,17 @@ client.on('ready', () => {
 async function parseRuokalista(ruokalista) {
   const foodlist2 = await ruokalista;
   const foodlist2Parsed = await parser.parse(foodlist2);
-  return await foodlist2Parsed.rss.channel.item;
+  if (Array.isArray(foodlist2Parsed.rss.channel.item)) {
+    return await foodlist2Parsed.rss.channel.item;
+  }
+  else {
+    return [foodlist2Parsed.rss.channel.item];
+  }
 }
 
 async function haeTamanViikonRuokalista() {
   let food;
-//alempana linkki tämän viikon ruokalistaan
+  //alempana linkki tämän viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=1").then(vastaus => {
     food = vastaus.text()
   });
@@ -31,7 +36,7 @@ async function haeTamanViikonRuokalista() {
 
 async function haeEnsiViikonRuokalista() {
   let food;
-//alempana linkki ensi viikon ruokalistaan
+  //alempana linkki ensi viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=2").then(vastaus => {
     food = vastaus.text()
   });
@@ -42,7 +47,7 @@ async function haeEnsiViikonRuokalista() {
 
 async function haeTamanPaivanRuokalista() {
   let food;
-//alempana linkki ensi viikon ruokalistaan
+  //alempana linkki ensi viikon ruokalistaan
   await fetch("https://aromimenu.cgisaas.fi/EspooAromieMenus/FI/Default/ESPOO/Lintumetsankoulu/Rss.aspx?Id=bf4e16af-ddcc-4e46-9733-b424f19e3939&DateMode=0").then(vastaus => {
     food = vastaus.text()
   });
@@ -53,7 +58,7 @@ async function haeTamanPaivanRuokalista() {
 
 async function embedRakentaja(ruokalista_ei_odotettu, description) {
   const ruokalista = await ruokalista_ei_odotettu;
-  console.log(ruokalista);
+
   const exampleEmbed = {
     color: 0xbe9130,
     title: 'Ruokalista',
@@ -66,19 +71,19 @@ async function embedRakentaja(ruokalista_ei_odotettu, description) {
     thumbnail: {
     },
     fields: [
-  ],
+    ],
     image: {
     }
   };
 
   for (let osa in ruokalista) {
-    exampleEmbed.fields.push({
-      name: ruokalista[osa].title,
-      value: "",
-      inline: false,
-    });
-    print(ruokalista)
-
+    if (ruokalista.length != 1) {
+      exampleEmbed.fields.push({
+        name: ruokalista[osa].title,
+        value: "",
+        inline: false,
+      });
+    }
     let paiva = ruokalista[osa].description.split("<br><br>")
 
     let Normaalilounas = paiva[1].split(":")
@@ -114,17 +119,17 @@ client.on('interactionCreate', async interaction => {
     if (aikavali === "tamanViikonRuokalista") {
       const ruokalista2 = haeTamanViikonRuokalista();
       await interaction.reply({ embeds: [await embedRakentaja(ruokalista2, "Tämän viikon ruokalista")] });
-  
+
     }
     else if (aikavali === "ensiViikonRuokalista") {
       const ruokalista2 = haeEnsiViikonRuokalista();
       await interaction.reply({ embeds: [await embedRakentaja(ruokalista2, "Ensiviikon ruokalista")] });
-  
+
     }
     else {
       const ruokalista2 = haeTamanPaivanRuokalista();
       await interaction.reply({ embeds: [await embedRakentaja(ruokalista2, "Tämän päivän ruokalista")] });
-  
+
     }
   }
 
